@@ -1,0 +1,6 @@
+id=xiaomi-miui-conv-lite
+name=Lite Patch for Xiaomi MIUI China
+version=v01
+versionCode=1
+author=AndroPlus
+description=Change MIUI version flag from China to Global
