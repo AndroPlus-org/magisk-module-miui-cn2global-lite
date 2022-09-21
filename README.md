@@ -1,10 +1,13 @@
-## Patch for Xiaomi MIUI China
+## Flag Patch for Xiaomi MIUI China
 
 This is a Magisk module to change MIUI Chinese version to Global version by changing ROM flag.
 
 The look and feel of the settings, etc. will be the global version.
 
 OTA cannot be received during module activation. If you are using the Chinese device where the global version exists, please note that the global version OTA may come and it should not be downloaded.
+
+This module only changes ROM flags, so please install "Patch for Xiaomi MIUI China" to add translations:  
+https://github.com/AndroPlus-org/magisk-module-miui-cn2global
 
 ## Prohibitions
 
