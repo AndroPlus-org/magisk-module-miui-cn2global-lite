@@ -1,6 +1,3 @@
-REPLACE="
-"
-
 remove_limitation() {
 mkdir -p "$1"
 
@@ -18,4 +15,15 @@ elif [ -f "/system/etc/permissions/services.cn.google.xml" ]; then
 	remove_limitation "${PERMISSION_PATH}"
 else
     ui_print "services.cn.google.xm not found, skipped"
+fi
+
+MIUI_INS_EXIST=`cmd package path com.miui.packageinstaller`
+MIUI_INS_ENABLED=`cmd package list packages -e com.miui.packageinstaller`
+AOSP_INS_EXIST=`cmd package path com.android.packageinstaller | sed -e 's/package://g'`
+MIUI_OPT=`getprop persist.sys.miui_optimization`
+if [ -n "$MIUI_INS_EXIST" ] && [ -n "$MIUI_INS_ENABLED" ] && [ "$MIUI_OPT" = "false" ]; then
+    REPLACE="$(dirname ${AOSP_INS_EXIST})"
+    ui_print "MIUI optimization is disabled, removing AOSP Package Installer"
+else
+    REPLACE=""
 fi
