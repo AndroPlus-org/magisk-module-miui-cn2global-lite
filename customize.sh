@@ -17,6 +17,9 @@ else
     ui_print "services.cn.google.xm not found, skipped"
 fi
 
+REPLACE=""
+
+<< COMMENTOUT
 MIUI_INS_EXIST=`cmd package path com.miui.packageinstaller`
 MIUI_INS_ENABLED=`cmd package list packages -e com.miui.packageinstaller`
 AOSP_INS_EXIST=`cmd package path com.android.packageinstaller | sed -e 's/package://g'`
@@ -27,3 +30,4 @@ if [ -n "$MIUI_INS_EXIST" ] && [ -n "$MIUI_INS_ENABLED" ] && [ "$MIUI_OPT" = "fa
 else
     REPLACE=""
 fi
+COMMENTOUT
